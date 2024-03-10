@@ -1,0 +1,6 @@
+path: /home/multi_results_yolo
+train: images/train
+val: images/test
+
+names:
+    0: text

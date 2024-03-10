@@ -1,0 +1,85 @@
+count: 1
+
+
+corpus:
+  paths: [resources/corpus/nithan.txt]
+  weights: [1]
+  min_length: 1
+  max_length: 25
+  textcase: [lower]
+
+font:
+  paths: [resources/font]
+  weights: [1]
+  size: [18, 40]
+  bold: 0
+
+color:
+  rgb: [[0, 0], [0, 0], [0, 0]]
+  alpha: [5, 5]
+  grayscale: 0
+
+layout:
+  length: [420, 594]
+  space: [30, 30]
+  line_space: [0, 0]
+  align: [left]
+  line_align: [center]
+  ltr: true
+  ttb: true
+  vertical: false
+
+translate:
+  prob: 1
+  args:
+    pxs: [[0, 400], [0, 400]]
+
+
+transform:
+  prob: 1
+  args:
+    weights: [1, 1, 2]
+    args:
+      # skew x
+      - weights: [1, 0]
+        angle: [0, 10]
+        ccw: 0.5
+      # skew y
+      - weights: [0, 1]
+        angle: [0, 10]
+        ccw: 0.5
+      # rotate
+      - angle: [0, 10]
+        ccw: 0.5
+
+
+texteffect:
+  args:
+    # text border
+    - prob: 1
+      args:
+        size: [0, 0.5]
+        rgb: [[0, 0], [0, 0], [0, 0]]
+        alpha: [1, 1]
+        grayscale: 0        
+
+
+postprocess:
+  args:
+    # gaussian noise
+    - prob: 1
+      args:
+        scale: [15, 17]
+        per_channel: 0.5
+    # brightness
+    - prob: 1
+      args:
+        beta: [-80, 60]
+    # contrast
+    - prob: 0.5
+      args:
+        alpha: [0.5, 1.5]
+    # gaussian blur
+    - prob: 0.9
+      args:
+        sigma: [0, 0.8]

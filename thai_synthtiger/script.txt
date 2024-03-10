@@ -1,0 +1,2 @@
+synthtiger -o results -c 65007 -w 16 -v thai_synthtiger/template.py SynthTiger thai_synthtiger/config_horizontal.yaml
+
